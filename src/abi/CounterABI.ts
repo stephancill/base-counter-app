@@ -38,7 +38,7 @@ export const CounterABI = [
     stateMutability: "view",
   },
   {
-    name: "increment",
+    name: "incrementAndMint",
     type: "function",
     inputs: [],
     outputs: [],
@@ -53,6 +53,25 @@ export const CounterABI = [
         name: "",
         type: "address",
         internalType: "address",
+      },
+    ],
+    stateMutability: "view",
+  },
+  {
+    name: "tokenURI",
+    type: "function",
+    inputs: [
+      {
+        name: "tokenId",
+        type: "uint256",
+        internalType: "uint256",
+      },
+    ],
+    outputs: [
+      {
+        name: "",
+        type: "string",
+        internalType: "string",
       },
     ],
     stateMutability: "view",

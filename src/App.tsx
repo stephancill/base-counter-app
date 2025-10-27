@@ -10,8 +10,8 @@ import { base, baseSepolia } from "wagmi/chains";
 import { CounterABI } from "./abi/CounterABI";
 
 const CONTRACT_ADDRESSES = {
-  [baseSepolia.id]: "0x5B483EA5105B6BEb6667057C3B39eCaD8beeB2fD" as const,
-  [base.id]: "0x1d753162bbf90C94384bDa26cee0Cf26856DDBB3" as const,
+  [baseSepolia.id]: "0xbc09CE89e4a0f99684a0dDC898D1CB2CAfadD1ac" as const,
+  [base.id]: "0x437378f655C30bFeB1d156b3E30ED2c7d3A73F4D" as const,
 };
 
 function App() {
@@ -59,7 +59,7 @@ function App() {
     writeContract({
       address: contractAddress,
       abi: CounterABI,
-      functionName: "increment",
+      functionName: "incrementAndMint",
     });
   };
 
@@ -139,7 +139,7 @@ function App() {
               onClick={handleIncrement}
               disabled={isPending}
             >
-              {isPending ? "Incrementing..." : "Increment Counter"}
+              {isPending ? "Minting..." : "Increment & Mint NFT"}
             </button>
           </div>
         </div>
