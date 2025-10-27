@@ -42,7 +42,11 @@ function App() {
     },
   });
 
-  const { writeContract, isPending } = useWriteContract({
+  const {
+    writeContract,
+    isPending,
+    data: txHash,
+  } = useWriteContract({
     mutation: {
       onSuccess: () => {
         setTimeout(() => {
@@ -141,6 +145,30 @@ function App() {
             >
               {isPending ? "Minting..." : "Increment & Mint NFT"}
             </button>
+
+            {txHash && (
+              <div style={{ marginTop: "1rem" }}>
+                <h3>Transaction Hash</h3>
+                <a
+                  href={`${
+                    account.chainId === baseSepolia.id
+                      ? "https://sepolia.basescan.org"
+                      : "https://basescan.org"
+                  }/tx/${txHash}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    fontFamily: "monospace",
+                    fontSize: "0.9rem",
+                    wordBreak: "break-all",
+                    color: "#0066cc",
+                    textDecoration: "underline",
+                  }}
+                >
+                  {txHash}
+                </a>
+              </div>
+            )}
           </div>
         </div>
       )}
